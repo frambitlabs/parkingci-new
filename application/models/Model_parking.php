@@ -144,6 +144,18 @@ class Model_parking extends CI_Model
 		$query = $this->db->query($sql);
 		return $query->num_rows();
 	}
+
+	public function getParkingIdByCode($parkingCode)
+    {
+        $query = $this->db->get_where('parking', array('parking_code' => $parkingCode));
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            return $row->id;
+        }
+
+        return null;
+    }
 	
 
 	

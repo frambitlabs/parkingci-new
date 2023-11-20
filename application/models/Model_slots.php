@@ -68,4 +68,10 @@ class Model_Slots extends CI_Model
 		$query = $this->db->query($sql);
 		return $query->num_rows();
 	}
+
+	public function updateParkingCode($slot_id, $parking_code)
+    {
+        $this->db->where('id', $slot_id);
+        $this->db->update('slots', array('parking_code' => $parking_code));
+    }
 }

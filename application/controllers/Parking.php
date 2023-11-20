@@ -82,6 +82,9 @@ class Parking extends Admin_Controller
         		);
 
         		$update_slot = $this->model_slots->updateSlotAvailability($slot_data, $this->input->post('parking_slot'));
+				
+				$slot_id = $this->input->post('parking_slot');
+				$this->model_slots->updateParkingCode($slot_id, $parking_code);
 
         		if($create == true && $update_slot == true) {
         			$this->session->set_flashdata('success', 'Successfully created');
