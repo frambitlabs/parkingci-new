@@ -41,6 +41,26 @@
           <div class="box-header">
             <h3 class="box-title">Manage Parking</h3>
           </div>
+          <div >
+        <div >
+          <div class="inner">
+          <h2>Barcode Section</h2>
+
+<!-- Flash message -->
+<?php if ($this->session->flashdata('message')) : ?>
+    <p><?php echo $this->session->flashdata('message'); ?></p>
+<?php endif; ?>
+
+<!-- Barcode input form -->
+<form action="<?php echo base_url('barcode/checkOccupancy'); ?>" method="post">
+    <label for="barcode_value">Enter Barcode:</label>
+    <input type="text" name="barcode_value" required>
+    <button type="submit">Check Occupancy</button>
+</form>
+          </div>
+        </div>
+            
+        </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="datatables" class="table table-bordered table-hover table-striped">
