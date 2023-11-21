@@ -1,10 +1,16 @@
-<!-- application/views/barcode/index.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barcode Section</title>
+
+    <!-- Add JavaScript to set focus on the input element -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('input[name="barcode_value"]').focus();
+        });
+    </script>
 </head>
 <body>
     <h2>Barcode Section</h2>

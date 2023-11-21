@@ -45,7 +45,38 @@
         <div >
           <div class="inner">
           <h2>Barcode Section</h2>
+          <div class="form-group">
+                <label for="group_name">Slot</label>
+                <select class="form-control" id="parking_slot" name="parking_slot"> 
+                  <?php foreach ($slot_data as $k => $v) : ?>
+                    <option value="<?php echo $v['id'] ?>"><?php echo $v['slot_name']; ?></option>
+                  <?php endforeach ?>
+                </select>
+              </div>
+          <script>
+  $(document).ready(function() {
+    $("#parkingSideTree").addClass('active');
+    $("#createParkingSideTree").addClass('active');
 
+    $('#parking_slot').select2();
+
+    $("#vehicle_cat").on('change', function() {
+      var value = $(this).val();
+
+      $.ajax({
+        url: <?php echo "'" . base_url('parking/getCategoryRate/') . "'"; ?> + value,
+        type: 'post',
+        dataType: 'json',
+        success: function(response) {
+          $("#vehicle_rate").html(response);
+        }
+      });
+    });
+  });
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('input[name="barcode_value"]').focus();
+        });
+    </script>
 <!-- Flash message -->
 <?php if ($this->session->flashdata('message')) : ?>
     <p><?php echo $this->session->flashdata('message'); ?></p>

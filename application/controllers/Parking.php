@@ -26,6 +26,9 @@ class Parking extends Admin_Controller
 			redirect('dashboard', 'refresh');
 		}
 
+		$slots = $this->model_slots->getAvailableSlotData();
+        	$this->data['slot_data'] = $slots;
+
 		$parking_data = $this->model_parking->getParkingData();
 	
 		$result = array();
